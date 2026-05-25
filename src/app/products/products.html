@@ -1,0 +1,59 @@
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <div
+  class="loading"
+  *ngIf="loading"
+>
+
+  Loading Products...
+
+</div>
+<div
+  class="products-grid"
+  *ngIf="!loading"
+>
+
+  <div
+    class="product-card"
+    *ngFor="let product of products"
+  >
+
+    <img
+      [src]="product.image"
+      class="product-image"
+    >
+
+    <div class="product-content">
+
+      <h2>
+        {{ product.name }}
+      </h2>
+
+      <p>
+        {{ product.description }}
+      </p>
+
+      <button
+  class="price-btn"
+  (click)="viewProduct(product)"
+>
+
+  ₹ {{ product.price }}
+
+</button>
+
+<button
+  class="cart-btn"
+  (click)="addToCart(product)"
+>
+
+  Add To Cart
+
+</button>
+
+    </div>
+
+  </div>
+
+</div>
+</div>

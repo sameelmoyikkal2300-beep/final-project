@@ -1,0 +1,257 @@
+<section class="banner-carousel">
+  <div class="carousel-container">
+    <div class="carousel-slide" [style.backgroundImage]="'url(' + banners[currentSlide] + ')'">
+      <div class="carousel-overlay"></div>
+
+      <div class="carousel-content">
+        <h2>Mega Sale - Up to 70% Off</h2>
+        <p>Shop the hottest deals across all categories</p>
+        <button class="cta-button">Shop Now</button>
+      </div>
+    </div>
+
+    <button class="carousel-arrow left-arrow" (click)="prevSlide()">❮</button>
+    <button class="carousel-arrow right-arrow" (click)="nextSlide()">❯</button>
+
+    <div class="carousel-dots">
+      <span *ngFor="let i of [0,1,2]" [class.active]="i === currentSlide"></span>
+    </div>
+  </div>
+</section>
+
+<section class="categories-section">
+  <div class="section-container">
+    <h2 class="section-title">Shop by Category</h2>
+
+    <div class="categories-grid">
+      <div *ngFor="let category of categories" class="category-card">
+
+        <div class="category-image-wrapper">
+          <img [src]="category.image" [alt]="category.name" class="category-image">
+          <div class="category-overlay"></div>
+        </div>
+
+        <h3 class="category-name">{{ category.name }}</h3>
+        <p class="category-link">Explore →</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="deals-section">
+  <div class="section-container">
+
+    <h2 class="section-title">⚡ Flash Deals</h2>
+
+    <div class="deals-grid">
+
+      <div *ngFor="let deal of deals" class="deal-card">
+
+        <div class="deal-content">
+          <h3>{{ deal.title }}</h3>
+          <div class="deal-discount">{{ deal.discount }}% OFF</div>
+          <p class="deal-timer">⏱️ {{ deal.time }}</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="products-section featured-products">
+
+  <div class="section-container">
+
+    <div class="section-header">
+      <h2 class="section-title">✨ Featured Products</h2>
+      <a routerLink="products" class="view-all">View All →</a>
+    </div>
+
+    <div class="products-grid">
+
+      <div *ngFor="let product of featuredProducts" class="product-card">
+
+        <div class="product-image-container">
+
+          <img [src]="product.image" [alt]="product.name" class="product-image">
+
+          <div *ngIf="product.discount" class="discount-badge">
+            -{{ product.discount }}%
+          </div>
+
+          <div *ngIf="product.badge" class="product-badge">
+            {{ product.badge }}
+          </div>
+
+          <div class="product-overlay">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+
+        </div>
+
+        <div class="product-info">
+
+          <h3 class="product-name">{{ product.name }}</h3>
+
+          <div class="product-rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-count">({{ product.reviews }})</span>
+          </div>
+
+          <div class="product-price">
+
+            <span class="current-price">
+              ₹{{ product.price }}
+            </span>
+
+            <span *ngIf="product.discount" class="original-price">
+              ₹{{ product.price * (1 + product.discount / 100) | number: '1.0-0' }}
+            </span>
+
+          </div>
+
+          <button class="add-to-cart">🛒 Add to Cart</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="products-section new-arrivals">
+
+  <div class="section-container">
+
+    <div class="section-header">
+      <h2 class="section-title">🆕 New Arrivals</h2>
+      <a routerLink="products" class="view-all">View All →</a>
+    </div>
+
+    <div class="products-grid">
+
+      <div *ngFor="let product of newArrivals" class="product-card">
+
+        <div class="product-image-container">
+
+          <img [src]="product.image" [alt]="product.name" class="product-image">
+
+          <div *ngIf="product.discount" class="discount-badge">
+            -{{ product.discount }}%
+          </div>
+
+          <div *ngIf="product.badge" class="product-badge">
+            {{ product.badge }}
+          </div>
+
+          <div class="product-overlay">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+
+        </div>
+
+        <div class="product-info">
+
+          <h3 class="product-name">{{ product.name }}</h3>
+
+          <div class="product-rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-count">({{ product.reviews }})</span>
+          </div>
+
+          <div class="product-price">
+
+            <span class="current-price">
+              ₹{{ product.price }}
+            </span>
+
+            <span *ngIf="product.discount" class="original-price">
+              ₹{{ product.price * (1 + product.discount / 100) | number: '1.0-0' }}
+            </span>
+
+          </div>
+
+          <button class="add-to-cart">🛒 Add to Cart</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="why-choose-us">
+
+  <div class="section-container">
+
+    <h2 class="section-title">Why Choose Us?</h2>
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">🚚</div>
+        <h3>Free Shipping</h3>
+        <p>Free delivery on orders over ₹500</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>Secure Payment</h3>
+        <p>100% secure transactions</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">↩️</div>
+        <h3>Easy Returns</h3>
+        <p>30-day return policy</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">⭐</div>
+        <h3>24/7 Support</h3>
+        <p>Round the clock customer support</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="newsletter-section">
+
+  <div class="newsletter-container">
+
+    <h2>Subscribe to Our Newsletter</h2>
+
+    <p>
+      Get exclusive deals and updates delivered to your inbox
+    </p>
+
+    <div class="newsletter-form">
+
+      <input
+        type="email"
+        placeholder="Enter your email address"
+        class="email-input"
+      >
+
+      <button class="subscribe-btn">
+        Subscribe
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+

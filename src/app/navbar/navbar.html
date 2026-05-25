@@ -1,0 +1,76 @@
+<nav class="navbar">
+
+  <div class="logo">
+
+    <a routerLink="/">
+      amaze<span>.in</span>
+    </a>
+
+  </div>
+
+  <ul class="nav-links">
+
+    <li>
+
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact:true }"
+      >
+        Home
+      </a>
+
+    </li>
+
+    <li>
+
+      <a
+        routerLink="/products"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact:true }"
+      >
+        Products
+      </a>
+
+    </li>
+
+    <li>
+
+      <a
+        routerLink="/contact"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact:true }"
+      >
+        Contact Us
+      </a>
+
+    </li>
+
+  </ul>
+
+  <div class="search-box">
+
+    <input
+      type="text"
+      placeholder="Search products..."
+    >
+
+    <button type="button">
+      Search
+    </button>
+
+  </div>
+
+  <div class="cart">
+
+    🛒
+
+    <span
+      class="cart-dot"
+      *ngIf="cartCount > 0"
+    >
+    </span>
+
+  </div>
+
+</nav>
