@@ -34,6 +34,7 @@ export class Products {
     this.products = res;
 
     this.loading = false;
+    this.cdr.detectChanges();
  
   });
 
